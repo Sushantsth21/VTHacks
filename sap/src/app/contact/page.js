@@ -4,7 +4,7 @@ import { LinkedIn, Twitter, Instagram, Facebook, YouTube } from '@mui/icons-mate
 
 const ContactPage = () => {
     return (
-        <div>
+         <div>
             {/* Business Inquiries Section with Background and Dark Fade at Bottom */}
             <div
                 className="min-h-screen"
@@ -32,7 +32,7 @@ const ContactPage = () => {
                         <section
                             className="relative mb-16 max-w-xl mx-auto p-8 shadow-lg rounded-lg"
                             style={{
-                                backgroundImage: `url('https://costarmanager.com/hs-fs/hubfs/20220811_Richmond_VA_Costar-Office4.jpg?width=3000&height=1999&name=20220811_Richmond_VA_Costar-Office4.jpg')`,
+                                backgroundImage: `url('https://www.virginiabusiness.com/wp-content/uploads/2024/02/Costar_Alamy-386x543.jpg')`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center',
                                 backgroundRepeat: 'no-repeat',
