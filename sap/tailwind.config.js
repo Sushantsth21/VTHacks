@@ -7,11 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      textShadow: {
+        default: '2px 2px 4px rgba(0, 0, 0, 0.2)',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
 };

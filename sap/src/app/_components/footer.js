@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p className="text-sm">&copy; 2024 Your Company Name. All rights reserved.</p>
+          <p className="text-sm">&copy; 2024 MIMS. All rights reserved.</p>
         </div>
       </div>
     </footer>
