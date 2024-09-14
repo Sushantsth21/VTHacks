@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { User, Settings, LogOut, LogIn } from "lucide-react";
 import {
@@ -13,12 +13,6 @@ const WelcomeMessage = () => {
   const { redirectToSignupPage, redirectToLoginPage, redirectToAccountPage } =
     useRedirectFunctions();
   const logoutFn = useLogoutFunction();
-
-  useEffect(() => {
-    if (!loading && !user) {
-      redirectToLoginPage();
-    }
-  }, [loading, user, redirectToLoginPage]);
 
   if (loading) return <div>Loading...</div>;
 
@@ -75,21 +69,23 @@ const WelcomeMessage = () => {
           </Menu>
         </div>
       ) : (
-        <div className="flex items-center space-x-4">
-          <p className="text-lg">Please log in to be welcomed</p>
-          <button
-            onClick={() => redirectToLoginPage()}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            <LogIn className="w-5 h-5 mr-2" />
-            Login
-          </button>
-          <button
-            onClick={() => redirectToSignupPage()}
-            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Signup
-          </button>
+        <div className="flex items-center justify-between">
+          <p className="text-lg">Welcome, guest!</p>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => redirectToLoginPage()}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              <LogIn className="w-5 h-5 mr-2" />
+              Login
+            </button>
+            <button
+              onClick={() => redirectToSignupPage()}
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Signup
+            </button>
+          </div>
         </div>
       )}
     </div>
