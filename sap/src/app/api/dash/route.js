@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
-import { NextResponse } from "next/server"; // Keep this if you're using App Router
+import { NextResponse } from "next/server";
 
-// Create a connection function
 const connectDB = async () => {
   if (mongoose.connections[0].readyState) {
-    return; // If already connected, use current connection
+    console.log("Already connected to MongoDB");
+    return;
   }
 
   const uri = process.env.MONGODB_URI;
@@ -13,8 +13,8 @@ const connectDB = async () => {
   }
 
   try {
-    await mongoose.connect(uri);
-    console.log("Connected to MongoDB");
+    await mongoose.connect(uri, { dbName: "Inv" });
+    console.log("Connected to MongoDB database: Inv");
   } catch (error) {
     console.error("MongoDB connection error:", error);
     throw error;
@@ -23,21 +23,47 @@ const connectDB = async () => {
 
 export async function GET(request) {
   try {
+    console.log("Starting GET request");
     await connectDB();
+    console.log("Connected to database");
 
-    // Check if model exists before declaring it
-    const ApartmentDetails =
-      mongoose.models.ApartmentDetails ||
-      mongoose.model(
-        "ApartmentDetails",
-        new mongoose.Schema({}, { strict: false }),
-        "Apartment Details" // Specify the correct collection name here
-      );
+    const collection = mongoose.connection.db.collection("Apartment Details");
+    console.log("Collection name:", collection.collectionName);
 
-    const apartments = await ApartmentDetails.find({}).lean();
-    console.log(apartments);
+    const apartments = await collection.find({}).toArray();
+    console.log("Query executed");
+    console.log("Number of apartments found:", apartments.length);
 
-    return NextResponse.json({ success: true, data: apartments }); // For App Router
+    if (apartments.length > 0) {
+      console.log("Sample document:", JSON.stringify(apartments[0], null, 2));
+    } else {
+      console.log("No documents found in the collection");
+    }
+
+    const mappedApartments = apartments.map((apt) => {
+      const mapped = {
+        _id: apt._id,
+        Unnamed: apt.Unnamed || 0,
+        apartment: apt.apartment,
+        assigned: apt.assigned,
+        num_people: apt.num_people || 0,
+        type: apt.type,
+        rent_amount_monthly: apt.rent_amount_monthly || 0,
+        parking_spaces: apt.parking_spaces || 0,
+        year: apt.year,
+      };
+
+      // Log any missing fields
+      Object.keys(mapped).forEach((key) => {
+        if (mapped[key] === undefined) {
+          console.log(`Missing field in document ${apt._id}: ${key}`);
+        }
+      });
+
+      return mapped;
+    });
+
+    return NextResponse.json({ success: true, data: mappedApartments });
   } catch (error) {
     console.error("Error fetching apartment details:", error);
     return NextResponse.json(
