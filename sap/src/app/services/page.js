@@ -1,9 +1,8 @@
-import Header from "./_components/header";
-import Footer from "./_components/footer";
+import Header from "../_components/header";
+import Footer from "../_components/footer";
 import Button from "@mui/material/Button";
 
-
-export default function Home() {
+export default function Services() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
       <Header />
@@ -20,25 +19,14 @@ export default function Home() {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)"
               }}
             >
-              Modern Inventory Management System (MIMS)
+              Our Services
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-8">
-              Streamline your inventory processes with MIMS – a powerful, intuitive, 
-              and cloud-based system designed to enhance your supply chain operations.
+              Discover how our services can transform your business with cutting-edge technology and personalized solutions.
             </p>
-            <a href="/offer">
-            <Button 
-              variant="contained" 
-              color="primary" 
-              className="mt-8 px-6 py-3"
-              style={{ backgroundColor: '#007bff' }}
-            >
-              Get Started
-            </Button>
-            </a>
           </div>
 
-          {/* Key Features Section */}
+          {/* Services Section */}
           <div className="mt-24">
             <h2
               className="text-4xl font-bold text-gray-800 mb-8"
@@ -46,14 +34,14 @@ export default function Home() {
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
               }}
             >
-              Why Choose MIMS?
+              What We Offer
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              {/* Card 1 */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+              {/* Service 1 */}
               <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-transform transform hover:-translate-y-1 flex flex-col items-center">
                 <img
-                  src="https://cdn.dribbble.com/users/13496/screenshots/1327531/analytics-app.gif" 
-                  alt="Feature 1"
+                  src="https://miro.medium.com/v2/resize:fit:1400/0*5Zk83_AubW8y3nx5.gif"
+                  alt="AI/ML Blockchain Integration"
                   className="w-full h-48 object-cover rounded-t-lg mb-4"
                 />
                 <h3
@@ -62,18 +50,18 @@ export default function Home() {
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
                   }}
                 >
-                  Real-Time Analytics
+                  AI/ML Blockchain Integration
                 </h3>
                 <p className="text-gray-600 mb-4 text-center">
-                  Gain actionable insights with our powerful analytics tools to track, forecast, and manage inventory in real-time.
+                  Leverage artificial intelligence and machine learning to optimize your processes and integrate blockchain for enhanced security and transparency.
                 </p>
               </div>
 
-              {/* Card 2 */}
+              {/* Service 2 */}
               <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-transform transform hover:-translate-y-1 flex flex-col items-center">
                 <img
-                  src="https://cdn.dribbble.com/users/6261056/screenshots/14660465/media/a608639b24d21d75eae965deb1a9f797.gif" 
-                  alt="Feature 2"
+                  src="https://d1.awsstatic.com/events/aws-hosted-events/2019/APAC/quickstart/AWS-Quick_Start_2019-Animated-Simplified_Backups-300px.169f47ea833f5a7221acbc92a3e5d6fea4b70f14.gif"
+                  alt="Improve Cloud Transition"
                   className="w-full h-48 object-cover rounded-t-lg mb-4"
                 />
                 <h3
@@ -82,18 +70,18 @@ export default function Home() {
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
                   }}
                 >
-                  Automated Reporting
+                  Improve Cloud Transition
                 </h3>
                 <p className="text-gray-600 mb-4 text-center">
-                  Save time with automated inventory reports, allowing you to focus on strategic decisions.
+                  Smoothly transition to cloud-based infrastructure with our comprehensive solutions, ensuring scalability, flexibility, and efficiency.
                 </p>
               </div>
 
-              {/* Card 3 */}
+              {/* Service 3 */}
               <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-transform transform hover:-translate-y-1 flex flex-col items-center">
                 <img
-                  src="https://cdn.dribbble.com/users/826792/screenshots/2267906/cloud-security-elias-stern.gif" 
-                  alt="Feature 3"
+                  src="https://cdn-icons-gif.flaticon.com/12134/12134194.gif"
+                  alt="Personalized Support"
                   className="w-full h-48 object-cover rounded-t-lg mb-4"
                 />
                 <h3
@@ -102,10 +90,30 @@ export default function Home() {
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
                   }}
                 >
-                  Cloud-Based & Secure
+                  Personalized Support
                 </h3>
                 <p className="text-gray-600 mb-4 text-center">
-                  Manage your inventory anytime, anywhere, with cloud-native architecture and top-tier security.
+                  Receive tailored support and consultancy to meet your specific business needs and drive successful outcomes.
+                </p>
+              </div>
+
+              {/* Service 4 */}
+              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-transform transform hover:-translate-y-1 flex flex-col items-center">
+                <img
+                  src="https://superstorefinder.net/support/wp-content/uploads/2018/01/elastic.gif"
+                  alt="Standardize Customizations"
+                  className="w-full h-48 object-cover rounded-t-lg mb-4"
+                />
+                <h3
+                  className="text-2xl font-semibold text-gray-800 mb-2 text-center"
+                  style={{
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+                  }}
+                >
+                  Standardize Customizations
+                </h3>
+                <p className="text-gray-600 mb-4 text-center">
+                  Standardize and streamline customizations to enhance efficiency and ensure consistent quality across all projects.
                 </p>
               </div>
             </div>

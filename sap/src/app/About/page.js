@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { Typography, Button, Grid } from '@mui/material';
+import Header from '../_components/header.js'
 
 const AboutPage = () => {
     return (
@@ -30,10 +31,10 @@ const AboutPage = () => {
             zIndex: -1,
         }}
     ></div>
-
+              <Header />
                 {/* Header Section */}
                <div className="about-section bg-white bg-opacity-80 p-8 max-w-4xl mx-auto shadow-lg rounded-b-lg">
-    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-red-500 animate-gradient">
+    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-red-500 animate-gradient mt-10">
         About MIMS
     </h1>
     <p className="mt-4 text-gray-700">

@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import { LinkedIn, Twitter, Instagram, Facebook, YouTube } from '@mui/icons-material';
+import Header from "../_components/header.js";
+
 
 const ContactPage = () => {
     return (
@@ -25,6 +27,7 @@ const ContactPage = () => {
                         width: '100%',
                     }}
                 >
+                    <Header />
                     <div className="container mx-auto px-4 py-16">
                         <Typography variant="h4" className="text-center font-bold mb-8" style={{ color: 'white', textTransform: 'uppercase', fontWeight: 300 }}>
                             Business Inquiries

@@ -44,16 +44,16 @@ const WelcomeMessage = () => {
 
     {/* Navigation links */}
     <div className="hidden md:flex flex-grow justify-center space-x-12 ml-32">
-      <a href="#" className="text-lg hover:text-indigo-500">
+      <a href="/" className="text-lg hover:text-indigo-500">
         Home
       </a>
       <a href="/contact" className="text-lg hover:text-indigo-500">
         Contact
       </a>
-      <a href="#" className="text-lg hover:text-indigo-500">
+      <a href="services" className="text-lg hover:text-indigo-500">
         Services
       </a>
-      <a href="/About" className="text-lg hover:text-indigo-500">
+      <a href="/about" className="text-lg hover:text-indigo-500">
         About
       </a>
     </div>
