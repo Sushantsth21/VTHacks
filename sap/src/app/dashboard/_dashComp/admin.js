@@ -12,6 +12,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import Analysis from "../../_components/analysis";
 
 const API_BASE_URL = "http://localhost:3000/api";
 
@@ -365,6 +366,7 @@ const Dashboard = () => {
           </table>
         </div>
       </div>
+      <Analysis />
     </div>
   );
 };
