@@ -53,7 +53,7 @@ const WelcomeMessage = () => {
       <a href="#" className="text-lg hover:text-indigo-500">
         Services
       </a>
-      <a href="#" className="text-lg hover:text-indigo-500">
+      <a href="/About" className="text-lg hover:text-indigo-500">
         About
       </a>
     </div>
