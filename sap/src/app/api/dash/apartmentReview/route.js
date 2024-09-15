@@ -43,13 +43,18 @@ export async function GET(request) {
     const mappedApartments = apartments.map((apt) => {
       const mapped = {
         _id: apt._id,
-        Unnamed: apt.Unnamed || 0,
+        Unnamed: apt.Unnamed !== undefined ? apt.Unnamed : 0,
         apartment: apt.apartment,
         assigned: apt.assigned,
-        num_people: apt.num_people || 0,
+        num_people: apt.num_people !== undefined ? apt.num_people : 0,
         type: apt.type,
-        rent_amount_monthly: apt.rent_amount_monthly || 0,
-        parking_spaces: apt.parking_spaces || 0,
+        rent_amount_monthly:
+          apt["rent_amount/monthly"] !== undefined
+            ? apt["rent_amount/monthly"]
+            : 0,
+
+        parking_spaces:
+          apt.parking_spaces !== undefined ? apt.parking_spaces : 0,
         year: apt.year,
       };
 
@@ -63,7 +68,7 @@ export async function GET(request) {
       return mapped;
     });
 
-    return NextResponse.json({ success: true, data: mappedApartments });
+    return NextResponse.json({ data: mappedApartments });
   } catch (error) {
     console.error("Error fetching apartment details:", error);
     return NextResponse.json(
