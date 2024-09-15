@@ -65,7 +65,7 @@ const WelcomeMessage = () => {
               About
             </a>
             <a href="/dashboard" className="text-lg hover:text-indigo-500">
-              About
+              Dashboard
             </a>
           </div>
 

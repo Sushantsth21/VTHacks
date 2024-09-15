@@ -94,7 +94,7 @@ export default function Home() {
               className="mt-8 px-6 py-3"
               style={{ backgroundColor: "#007bff" }}
             >
-              Get Started
+             <a href="/offer">Get Started</a> 
             </Button>
           </div>
 

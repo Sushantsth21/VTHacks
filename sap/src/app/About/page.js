@@ -91,7 +91,7 @@ const AboutPage = () => {
         <div className="team-member bg-gray-50 p-4 rounded-lg shadow">
             <img src="https://media.licdn.com/dms/image/v2/D5603AQEhuQ7Zg7G0_Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1716025376692?e=1732147200&v=beta&t=jBSmjcPiygzpWJdF0OB-324y-9A61jeVUod8C2EkV7U" alt="Member 4" className="w-32 h-32 rounded-full mx-auto" />
             <h3 className="mt-4 font-bold text-lg">Mithlesh Sah</h3>
-            <p className="text-sm text-gray-600">Role - Frontend</p>
+            <p className="text-sm text-gray-600">Role - Frontend/Backend (Stripe API)</p>
         </div>
     </div>
 </section>
