@@ -1,15 +1,44 @@
+"use client"; // Add this at the top to indicate it's a client-side component
+
+import React, { useState } from 'react';
 import Header from "./_components/header";
 import Footer from "./_components/footer";
 import Button from "@mui/material/Button";
-
+import IconButton from '@mui/material/IconButton';
+import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import TextField from '@mui/material/TextField';
+import { useSpring, animated } from '@react-spring/web';
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  // Bounce animation for chatbot icon
+  const bounceAnimation = {
+    animation: 'bounce 1.5s infinite'
+  };
+
+  // Slide-in animation for chatbot dialog
+  const dialogAnimation = useSpring({
+    opacity: open ? 1 : 0,
+    transform: open ? 'translateY(0)' : 'translateY(100%)'
+  });
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
       <Header />
       <main className="flex-grow flex items-center justify-center">
         <div className="container px-4 py-16 text-center">
-          {/* Hero Section */}
           <div className="mb-16">
             <h1
               className="text-6xl font-extrabold text-center mt-16"
@@ -26,7 +55,6 @@ export default function Home() {
               Streamline your inventory processes with MIMS – a powerful, intuitive, 
               and cloud-based system designed to enhance your supply chain operations.
             </p>
-            <a href="/offer">
             <Button 
               variant="contained" 
               color="primary" 
@@ -35,7 +63,6 @@ export default function Home() {
             >
               Get Started
             </Button>
-            </a>
           </div>
 
           {/* Key Features Section */}
@@ -112,6 +139,63 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Floating Customer Support Button */}
+      <IconButton
+        onClick={handleClickOpen}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          backgroundColor: '#007bff',
+          color: 'white',
+          padding: '15px',
+          borderRadius: '50%',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+          ...bounceAnimation
+        }}
+      >
+        <SupportAgentIcon fontSize="large" />
+      </IconButton>
+
+      {/* Chatbot Dialog - Positioned near icon with enough width */}
+      <animated.div style={dialogAnimation}>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          PaperProps={{
+            style: {
+              position: 'absolute',
+              bottom: '80px',
+              right: '80px',
+              margin: 0,
+              width: '350px',  // Adjust width for enough space
+              padding: '20px',  // Add padding for better UX
+            }
+          }}
+        >
+          <DialogTitle>Customer Support Chat</DialogTitle>
+          <DialogContent>
+            <p>Welcome! How can we assist you today?</p>
+            <TextField 
+              fullWidth
+              label="Ask a question"
+              variant="outlined"
+              margin="dense"
+              multiline
+              rows={4}  // Allows a decent message box
+            />
+            <Button 
+              variant="contained" 
+              color="primary" 
+              className="mt-4"
+              style={{ backgroundColor: '#007bff' }}
+            >
+              Send
+            </Button>
+          </DialogContent>
+        </Dialog>
+      </animated.div>
 
       <Footer />
     </div>
